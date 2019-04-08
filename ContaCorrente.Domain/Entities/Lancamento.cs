@@ -29,6 +29,9 @@ namespace ContaCorrente.Domain.Entities
 
             if (Valor < 0)
                 notifications.AddNotification("Valor deve ser superior a zero");
+
+            if (ContaOrigem.Numero == ContaDestino.Numero)
+                notifications.AddNotification("Não é possivel transferir entre contas iguais.");
         }
 
         public bool IsValid()
